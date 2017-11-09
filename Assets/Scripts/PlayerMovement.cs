@@ -15,6 +15,16 @@ public class PlayerMovement : MonoBehaviour {
 	void Update () {
 		float inputX = Input.GetAxis("Horizontal");
 		float inputY = Input.GetAxis("Vertical");
-		theRigidBody.velocity = new Vector3(inputX*moveSpeed, inputY *moveSpeed,1);
-	}
+        float inputX2 = Input.GetAxis("Horizontal2");
+        theRigidBody.velocity = new Vector3(inputX*moveSpeed, inputY *moveSpeed,1);
+        transform.Rotate(0, 0, 2 * inputX2);
+        if (Input.GetKeyDown("up"))
+        {
+            transform.Rotate(90, 0, 0);
+        }
+        if (Input.GetKeyDown("down"))
+        {
+            transform.Rotate(-90, 0, 0);
+        }
+    }
 }
